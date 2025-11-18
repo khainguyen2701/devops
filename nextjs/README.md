@@ -66,3 +66,16 @@ docker-compose down --rmi all
 docker-compose build --no-cache
 docker-compose up -d
 ```
+
+xin ssl cho domain của bạn
+ec2 không cho chạy lệnh certbot trực tiếp, câu lệnh dưới chỉ chạy với domain thật
+
+```bash
+sudo apt install -y certbot python3-certbot-nginx letsencrypt
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+```
+
+```bash
+ssl_certificate /etc/letsencrypt/live/ntd0609/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/ntd0609/privkey.pem;
+```
